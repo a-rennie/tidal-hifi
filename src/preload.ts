@@ -453,6 +453,7 @@ function addMPRIS() {
         loopStatus: "repeat",
         shuffle: "shuffle",
         seek: "seek",
+        raise: "raise",
       } as { [key: string]: string };
       Object.keys(events).forEach(function (eventName) {
         player.on(eventName, function () {
@@ -460,6 +461,9 @@ function addMPRIS() {
           switch (events[eventValue]) {
             case events.playpause:
               playPause();
+              break;
+            case events.raise:
+              ipcRenderer.send(globalEvents.showWindow);
               break;
             default:
               elements.click(eventValue);

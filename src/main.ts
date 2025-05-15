@@ -236,6 +236,10 @@ ipcMain.on(globalEvents.showSettings, () => {
   showSettingsWindow();
 });
 
+ipcMain.on(globalEvents.showWindow, () => {
+  mainWindow.show();
+});
+
 ipcMain.on(globalEvents.refreshMenuBar, () => {
   syncMenuBarWithStore();
 });
